@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nextButton.addEventListener("click", () => {
         currentIndex++;
         if (currentIndex >= images.length) {
-            currentIndex = 0; // Loop to first image
+            currentIndex = 0;
         }
         updateImage();
     });
@@ -28,18 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
     prevButton.addEventListener("click", () => {
         currentIndex--;
         if (currentIndex < 0) {
-            currentIndex = images.length - 1; // Loop to last image
+            currentIndex = images.length - 1;
         }
         updateImage();
     });
 
-    // ✅ Optional: Keyboard support (← → keys)
     document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight") nextButton.click();
         if (e.key === "ArrowLeft") prevButton.click();
     });
-
-    // ✅ Optional: Auto-play mode (every 3 seconds)
     setInterval(() => {
         nextButton.click();
     }, 3000);
